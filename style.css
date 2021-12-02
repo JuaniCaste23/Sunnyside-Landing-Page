@@ -6,14 +6,12 @@
     --dark-blue: hsl(198, 62%, 26%);
     --dark-moderate-cyan: hsl(168, 34%, 41%);
     --footer-container-color: #90d4c5;
-    
     /*colors neutral*/
     --very-dark-desatured-blue: hsl(212, 27%, 19%);
     --very-dark-grayish-blue: hsl(213, 9%, 39%);
     --dark-grayish-blue: hsl(232, 10%, 55%);
     --grayish-blue: hsl(210, 4%, 67%);
     --just-white: #fff;
-    
     /*typography*/
     --font-size: 1.8rem;
     --font-barlow: 'Barlow', sans-serif;
@@ -106,6 +104,10 @@ h5 {
     position:absolute;
     top: 108px;
     left: 0px;
+    /* animation-name:fade;
+    animation-duration: 500ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in; */
     animation: fade 250ms forwards ease-in;
 }
 
@@ -143,6 +145,7 @@ h5 {
     color: var(--dark-grayish-blue);
     cursor: pointer;
     font-size:1.2rem;
+    transition: 400ms ease-out;
 }
 
 .mobile-links-container a:hover {
@@ -160,6 +163,7 @@ h5 {
     text-transform: uppercase;
     border-radius: 30px 30px 30px 30px;
     font-size:1rem;
+    transition: 200ms ease-out;
 }
 
 .contact-style:hover {
@@ -251,23 +255,21 @@ h5 {
 }
 
 .service {
-    height:600px;
+    height:560px;
     width:100%;
     background-size: cover;
-    background-position:center;
+    background-position: center;
     position: relative;   
 }
 
 .service.service--design {
     background-image: url('images/mobile/image-graphic-design.jpg');
     color: var(--dark-desaturated-cyan);
-    background-size: fill;
 }
 
 .service.service--photography {
     background-image: url('images/mobile/image-photography.jpg');
     color:var(--dark-blue);
-    background-size: fill;
 }
 
 .service__text-box {
@@ -400,6 +402,7 @@ h5 {
 .footer-container__text-box a {
     text-decoration: none;
     color: var(--dark-moderate-cyan);
+    transition: 400ms ease-out;
 }
 
 .footer-container__text-box a:hover{
@@ -415,6 +418,10 @@ h5 {
 
 .footer-container__social-networks li{
     margin: 0px 15px;
+}
+
+.footer-container__social-networks li svg path {
+    transition: 400ms ease-out;
 }
 
 .footer-container__social-networks li:hover svg path {
@@ -434,6 +441,20 @@ h5 {
 }
 
 /*media para tablet*/
+
+@media only screen and (min-width: 420px) {
+
+    .service.service--design {
+        background-image: url('images/desktop/image-graphic-design.jpg');
+    }
+    
+    .service.service--photography {
+        background-image: url('images/desktop/image-photography.jpg');
+    }
+
+}
+
+
 @media only screen and (min-width: 640px) {
 
     .header-container {
@@ -447,14 +468,6 @@ h5 {
 
     .detail__text-box{
         max-width:600px;
-    }
-
-    .service.service--design {
-        background-image: url('images/desktop/image-graphic-design.jpg');
-    }
-    
-    .service.service--photography {
-        background-image: url('images/desktop/image-photography.jpg');
     }
 
     .galery-grid-container {
@@ -473,6 +486,7 @@ h5 {
     }
 
 }
+
 
 /*media para escritorio*/
 @media only screen and (min-width: 820px) {
@@ -507,7 +521,7 @@ h5 {
     }
 
     .mobile-menu {
-        display:block !important; /*obliga al menu a hacer estas condiciones*/
+        display:block !important;
         animation:none;
         width:auto;
         padding:0;
@@ -579,7 +593,7 @@ h5 {
         max-width:370px;
     }
 
-    .detail:first-child .detail__text-box a::after,.detail:last-child .detail__text-box a::after {
+    .detail:first-child .detail__text-box a::after,.detail:last-child .detail__text-box a::after { /*TODO ARREGLAR ESTO*/
         top: -8px;
         left: 0;
         opacity:50%;
@@ -591,6 +605,20 @@ h5 {
         opacity:100%;
         transform: translate(0px);
     }
+
+    /* .detail__text-box a:hover::before {
+        content: '';
+        transition: all 350ms ease-out;
+        opacity:0%;
+        transform: scale(1);
+    } */
+
+    /* .detail__text-box a:hover::before {
+        content: '☻';
+        transition: all 350ms ease-out;
+        opacity:100%;
+        transform: scale(3);
+    } */
 
     .services-container {
         display: flex;
@@ -616,8 +644,11 @@ h5 {
     .testimonial-items {
         display: flex;
         flex-direction: row;
-        max-width: 800px;
         margin: auto;
+    }
+
+    .testimonial-items p{
+        max-width: 800px;
     }
 
     .galery-grid-container {
@@ -647,7 +678,15 @@ h5 {
         max-width: 400px; 
         margin: 40px auto;
     }
-    
+
+}
+
+@media only screen and (min-width: 1500px) {
+
+    .service {
+        height: 720px;
+    }
+
 }
 
 @keyframes fade {
